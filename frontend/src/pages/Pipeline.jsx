@@ -1,6 +1,6 @@
-import { SubmitButton } from "../components/submit";
-import { PipelineToolbar } from "../components/toolbar";
-import { PipelineUI } from "../components/ui";
+import SubmitButton from "../components/submit";
+import PipelineToolbar from "../components/toolbar";
+import PipelineUI from "../components/ui";
 
 const Pipeline = () => {
 	return (

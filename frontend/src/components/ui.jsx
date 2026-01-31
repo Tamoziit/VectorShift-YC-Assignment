@@ -34,7 +34,7 @@ const getInitNodeData = (nodeID, type) => {
   return { id: nodeID, nodeType: `${type}` };
 };
 
-export const PipelineUI = () => {
+const PipelineUI = () => {
   const reactFlowWrapper = useRef(null);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
 
@@ -109,3 +109,5 @@ export const PipelineUI = () => {
     </div>
   );
 };
+
+export default PipelineUI;

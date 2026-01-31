@@ -12,7 +12,7 @@ const InputNode = ({ id, data }) => {
     const value = e.target.value;
     setCurrName(value);
 
-    //updateInputName(id, value);
+    updateInputName(id, value);
   };
 
   const handleTypeChange = (e) => {
