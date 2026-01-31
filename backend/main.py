@@ -3,6 +3,7 @@ from fastapi import FastAPI, Form, Body
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
+from utils import is_pipeline_dag
 
 app = FastAPI()
 
@@ -53,7 +54,7 @@ def parse_pipeline(pipeline: PipelineData = Body(...)):
     logging.info(pipeline.nodes)
     logging.info(pipeline.edges)
     
-    is_dag = True
+    is_dag = is_pipeline_dag(pipeline.nodes, pipeline.edges)
     
     return {
         'status': 'parsed',
