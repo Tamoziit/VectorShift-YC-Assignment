@@ -49,3 +49,15 @@ code {
 .gradient-text {
   @apply text-2xl font-bold bg-linear-to-b from-gray-100 via-purple-100 to-purple-400 bg-clip-text text-transparent;
 }
+
+.glassmorphic {
+  /* Glassmorphism */
+  @apply px-6 py-3 rounded-2xl;
+  @apply bg-white/10 backdrop-blur-md;
+
+  /* The Glass Border */
+  @apply border border-white/20 shadow-xl;
+
+  /* Optional: Inner highlight for extra "glassiness" */
+  @apply border-t-white/40;
+}

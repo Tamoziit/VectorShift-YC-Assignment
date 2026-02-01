@@ -54,7 +54,7 @@ function handleInputErrors({
     nodes,
     edges
 }) {
-    if (!nodes || !edges || !Array.isArray(nodes) || !Array.isArray(edges) || nodes.length === 0 || edges.length === 0) {
+    if (!nodes || !edges || !Array.isArray(nodes) || !Array.isArray(edges) || nodes.length === 0) {
         toast.error("Create a pipeline first");
         return false;
     }

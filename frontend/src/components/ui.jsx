@@ -88,7 +88,7 @@ const PipelineUI = () => {
   console.log(nodes, edges)
 
   return (
-    <div ref={reactFlowWrapper} className="w-full h-[90vh] bg-linear-to-b from-slate-900 via-slate-900 to-black pb-3">
+    <div ref={reactFlowWrapper} className="w-full h-[82vh] bg-linear-to-b from-slate-900 via-slate-900 to-black pb-3">
       <ReactFlow
         nodes={nodes}
         edges={edges}
