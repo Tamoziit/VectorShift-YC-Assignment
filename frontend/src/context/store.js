@@ -11,6 +11,7 @@ export const useStore = create((set, get) => ({
   edges: [],
   nodeIDs: {},
   inputNameMap: {},
+  result: null,
 
   getNodeID: (type) => {
     const newIDs = { ...get().nodeIDs };
@@ -69,4 +70,10 @@ export const useStore = create((set, get) => ({
       }),
     });
   },
+
+  setResult: (result) => {
+    set({
+      result
+    });
+  }
 }));

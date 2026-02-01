@@ -88,7 +88,7 @@ const PipelineUI = () => {
   console.log(nodes, edges)
 
   return (
-    <div ref={reactFlowWrapper} className="w-full h-[70vh] bg-linear-to-b from-slate-900 via-slate-900 to-black">
+    <div ref={reactFlowWrapper} className="w-full h-[90vh] bg-linear-to-b from-slate-900 via-slate-900 to-black pb-3">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -106,8 +106,9 @@ const PipelineUI = () => {
         <Background color="#38bdf8" gap={gridSize} />
         <Controls />
         <MiniMap
+        className="w-50"
           nodeColor={n => getNodeColor(n.type)}
-          maskColor="rgba(0, 0, 0, 0.4)"
+          maskColor="rgba(0, 0, 0, 0.9)"
           nodeBorderRadius={1}
           zoomable
           pannable

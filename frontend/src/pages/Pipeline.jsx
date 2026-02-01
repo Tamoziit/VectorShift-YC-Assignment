@@ -1,4 +1,4 @@
-import SubmitButton from "../components/submit";
+import Result from "../components/Result";
 import PipelineToolbar from "../components/toolbar";
 import PipelineUI from "../components/ui";
 
@@ -7,7 +7,7 @@ const Pipeline = () => {
 		<div>
 			<PipelineToolbar />
 			<PipelineUI />
-			<SubmitButton />
+			<Result />
 		</div>
 	)
 }

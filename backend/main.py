@@ -58,7 +58,7 @@ def parse_pipeline(pipeline: PipelineData = Body(...)):
     
     return {
         'status': 'parsed',
-        'node_nodes': num_nodes,
+        'num_nodes': num_nodes,
         'num_edges': num_edges,
         'is_dag': is_dag
     }

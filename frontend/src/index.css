@@ -15,15 +15,15 @@ code {
 }
 
 .dark-header {
-  @apply text-gray-200 text-lg font-semibold
+  @apply text-gray-200 text-lg font-semibold;
 }
 
 .light-header {
-  @apply text-gray-800 text-lg font-semibold
+  @apply text-gray-800 text-lg font-semibold;
 }
 
 .LLM {
-  @apply bg-linear-to-b from-blue-700 via-purple-800 to-violet-950
+  @apply bg-linear-to-b from-blue-700 via-purple-800 to-violet-950;
 }
 
 .Input {
@@ -43,5 +43,9 @@ code {
 }
 
 .btn-primary {
-  @apply flex items-center justify-center rounded-lg bg-linear-to-b from-white via-gray-200 to-purple-600 border border-white/30 shadow-lg transition-all hover:bg-white/30
+  @apply flex items-center justify-center rounded-lg bg-linear-to-b from-white via-gray-200 to-purple-600 border border-white/30 shadow-lg transition-all hover:bg-white/30;
+}
+
+.gradient-text {
+  @apply text-2xl font-bold bg-linear-to-b from-gray-100 via-purple-100 to-purple-400 bg-clip-text text-transparent;
 }
