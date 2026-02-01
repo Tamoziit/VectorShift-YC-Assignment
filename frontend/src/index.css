@@ -61,3 +61,7 @@ code {
   /* Optional: Inner highlight for extra "glassiness" */
   @apply border-t-white/40;
 }
+
+.input-primary {
+  @apply rounded-md bg-black/15 backdrop-blur-md border-2 border-white/20 border-t-white/40 px-2 py-1;
+}
