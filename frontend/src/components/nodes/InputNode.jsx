@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Position } from 'reactflow';
 import BaseNode from './BaseNode';
 import { useStore } from '../../context/store';
+import { MdInput } from "react-icons/md";
 
 const InputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(data?.inputName || id.replace('customInput-', 'input_'));
@@ -21,12 +22,13 @@ const InputNode = ({ id, data }) => {
 
   useEffect(() => {
     updateInputName(id, currName);
-  }, [currName]);
+  }, [currName, id, updateInputName]);
 
   return (
     <BaseNode
       id={id}
       title="Input"
+      icon={<MdInput className='text-gray-200' />}
       handles={[
         {
           id: `${id}-value`,
@@ -35,19 +37,21 @@ const InputNode = ({ id, data }) => {
         }
       ]}
     >
-      <label>
+      <label className='text-gray-200'>
         Name:
         <input
           type="text"
           value={currName}
           onChange={handleNameChange}
+          className='input-primary w-full text-sm'
+          placeholder="Enter variable name..."
         />
       </label>
-      <label>
+      <label className='text-gray-200'>
         Type:
         <select value={inputType} onChange={handleTypeChange}>
-          <option value="Text">Text</option>
-          <option value="File">File</option>
+          <option value="Text" className='text-gray-500'>Text</option>
+          <option value="File" className='text-gray-500'>File</option>
         </select>
       </label>
     </BaseNode >
