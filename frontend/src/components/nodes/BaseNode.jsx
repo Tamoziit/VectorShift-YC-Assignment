@@ -8,9 +8,9 @@ const BaseNode = ({
 }) => {
 
 	return (
-		<div className={`${title} w-50 border-2 border-gray-800 rounded-lg p-3`}>
+		<div className={`${title} w-50 border-2 border-gray-300 rounded-lg p-3`}>
 			{title && (
-				<h1 className="dark-header text-gray-800">
+				<h1 className="dark-header">
 					{title}
 				</h1>
 			)}

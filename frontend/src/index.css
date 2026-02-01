@@ -13,3 +13,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dark-header {
+  @apply text-gray-200 text-lg font-semibold
+}
+
+.light-header {
+  @apply text-gray-800 text-lg font-semibold
+}
+
+.LLM {
+  @apply bg-linear-to-b from-blue-700 via-purple-800 to-violet-950
+}
+
+.Input {
+  @apply bg-linear-to-b from-teal-600 via-emerald-800 to-green-950;
+}
+
+.Output {
+  @apply bg-linear-to-b from-rose-600 via-red-800 to-orange-950;
+}
+
+.Text {
+  @apply bg-linear-to-b from-slate-600 via-gray-800 to-zinc-950;
+}
+
+.Slack {
+  @apply bg-linear-to-b from-amber-500 via-orange-700 to-yellow-950;
+}
+
+.btn-primary {
+  @apply flex items-center justify-center rounded-lg bg-linear-to-b from-white via-gray-200 to-purple-600 border border-white/30 shadow-lg transition-all hover:bg-white/30
+}

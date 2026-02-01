@@ -7,6 +7,7 @@ import LLMNode from './nodes/LLMNode';
 import OutputNode from './nodes/OutputNode';
 import TextNode from './nodes/TextNode';
 import SlackNode from './nodes/SlackNode';
+import { getNodeColor } from '../constants/nodeColours';
 
 import 'reactflow/dist/style.css';
 
@@ -87,7 +88,7 @@ const PipelineUI = () => {
   console.log(nodes, edges)
 
   return (
-    <div ref={reactFlowWrapper} style={{ width: '100vw', height: '70vh' }}>
+    <div ref={reactFlowWrapper} className="w-full h-[70vh] bg-linear-to-b from-slate-900 via-slate-900 to-black">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -102,9 +103,15 @@ const PipelineUI = () => {
         snapGrid={[gridSize, gridSize]}
         connectionLineType='smoothstep'
       >
-        <Background color="#111" gap={gridSize} />
+        <Background color="#38bdf8" gap={gridSize} />
         <Controls />
-        <MiniMap />
+        <MiniMap
+          nodeColor={n => getNodeColor(n.type)}
+          maskColor="rgba(0, 0, 0, 0.4)"
+          nodeBorderRadius={1}
+          zoomable
+          pannable
+        />
       </ReactFlow>
     </div>
   );
