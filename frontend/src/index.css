@@ -46,6 +46,14 @@ code {
   @apply flex items-center justify-center rounded-lg bg-linear-to-b from-white via-gray-200 to-purple-600 border border-white/30 shadow-lg transition-all hover:bg-white/30;
 }
 
+.btn-secondary {
+  @apply flex items-center gap-2 bg-linear-to-r from-green-200 via-green-400 to-emerald-600 border border-white/80 font-medium text-gray-900 cursor-pointer shadow-lg hover:bg-emerald-600;
+}
+
+.btn-tertiary {
+  @apply flex items-center gap-2 bg-linear-to-b from-purple-700 to-black border border-white/50 font-medium text-gray-900 cursor-pointer shadow-lg hover:bg-emerald-600;
+}
+
 .gradient-text {
   @apply text-2xl font-bold bg-linear-to-b from-gray-100 via-purple-100 to-purple-400 bg-clip-text text-transparent;
 }

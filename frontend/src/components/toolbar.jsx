@@ -1,10 +1,11 @@
 import DraggableNode from './draggableNode';
-import SubmitButton from './submit';
+import SubmitButton from './buttons/submit';
 import { MdInput } from "react-icons/md";
 import { SiOpenai } from "react-icons/si";
 import { MdOutput } from "react-icons/md";
 import { IoText } from "react-icons/io5";
 import { FaSlack } from "react-icons/fa";
+import Delete from './buttons/Delete';
 
 const PipelineToolbar = () => {
 	return (
@@ -30,7 +31,10 @@ const PipelineToolbar = () => {
 					<DraggableNode type='slack' label='Slack' icon={<FaSlack className='text-xl font-semibold text-purple-900' />} />
 				</div>
 
-				<SubmitButton />
+				<div className='flex gap-3 items-center justify-center'>
+					<SubmitButton />
+					<Delete />
+				</div>
 			</div>
 		</div>
 	);

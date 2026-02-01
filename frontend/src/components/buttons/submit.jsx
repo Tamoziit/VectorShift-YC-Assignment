@@ -1,7 +1,7 @@
 import { FaPlay } from "react-icons/fa";
-import { useStore } from "../context/store";
-import useSubmitPipeline from "../hooks/useSubmitPipeline";
-import Spinner from "./Spinner";
+import { useStore } from "../../context/store";
+import useSubmitPipeline from "../../hooks/useSubmitPipeline";
+import Spinner from "../Spinner";
 
 const SubmitButton = () => {
 	const { loading, submitPipeline } = useSubmitPipeline();
@@ -29,7 +29,7 @@ const SubmitButton = () => {
 				type="submit"
 				onClick={fetchPipelineResult}
 				disabled={loading}
-				className="flex items-center gap-2 bg-linear-to-r from-green-200 via-green-400 to-emerald-600 rounded-xl px-6 py-2 min-w-30 border border-white/80 font-medium text-gray-900 cursor-pointer shadow-lg hover:bg-emerald-600"
+				className="btn-secondary rounded-xl px-6 py-2 min-w-30"
 			>
 				{loading ? (
 					<Spinner size="small" color="accent" />

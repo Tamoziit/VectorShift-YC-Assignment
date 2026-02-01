@@ -10,6 +10,7 @@ import SlackNode from './nodes/SlackNode';
 import { getNodeColor } from '../constants/nodeColours';
 
 import 'reactflow/dist/style.css';
+import edgeOptions from '../constants/edgeOptions';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -102,11 +103,12 @@ const PipelineUI = () => {
         proOptions={proOptions}
         snapGrid={[gridSize, gridSize]}
         connectionLineType='smoothstep'
+        defaultEdgeOptions={edgeOptions}
       >
         <Background color="#38bdf8" gap={gridSize} />
         <Controls />
         <MiniMap
-        className="w-50"
+          className="w-50"
           nodeColor={n => getNodeColor(n.type)}
           maskColor="rgba(0, 0, 0, 0.9)"
           nodeBorderRadius={1}

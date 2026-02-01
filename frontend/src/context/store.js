@@ -75,5 +75,15 @@ export const useStore = create((set, get) => ({
     set({
       result
     });
-  }
+  },
+
+  clearCanvas: () => {
+    set({
+      nodes: [],
+      edges: [],
+      inputNameMap: {},
+      result: null,
+      nodeIDs: {}
+    });
+  },
 }));
