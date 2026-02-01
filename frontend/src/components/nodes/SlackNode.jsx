@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BaseNode from "./BaseNode";
 import { Position } from 'reactflow';
+import { FaSlack } from "react-icons/fa";
 
 const SlackNode = ({ id, data }) => {
 	const [currName, setCurrName] = useState(
@@ -10,10 +11,20 @@ const SlackNode = ({ id, data }) => {
 		data?.inputType || 'Text'
 	);
 
+	const handleNameChange = (e) => {
+		const value = e.target.value;
+		setCurrName(value); 
+	};
+
+	const handleTypeChange = (e) => {
+		setInputType(e.target.value);
+	};
+
 	return (
 		<BaseNode
 			id={id}
 			title="Slack"
+			icon={<FaSlack className='text-gray-200 text-lg' />}
 			handles={[
 				{
 					id: 'input',
@@ -34,23 +45,22 @@ const SlackNode = ({ id, data }) => {
 				},
 			]}
 		>
-			<label>
+			<label className='text-gray-200'>
 				Name:
 				<input
 					type="text"
 					value={currName}
-					onChange={(e) => setCurrName(e.target.value)}
+					onChange={handleNameChange}
+					className='input-primary w-full text-sm'
+					placeholder="Enter input variable name..."
 				/>
 			</label>
-
-			<label>
+			<label className='text-gray-200'>
 				Type:
-				<select
-					value={inputType}
-					onChange={(e) => setInputType(e.target.value)}
-				>
-					<option value="Text">Text</option>
-					<option value="File">File</option>
+				<select value={inputType} onChange={handleTypeChange}>
+					<option value="Text" className='text-gray-500'>Text</option>
+					<option value="File" className='text-gray-500'>File</option>
+					<option value="File" className='text-gray-500'>Link</option>
 				</select>
 			</label>
 		</BaseNode>

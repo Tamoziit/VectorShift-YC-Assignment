@@ -5,6 +5,8 @@ import AutoGrowTextarea from '../AutoGrowTextarea';
 import extractVariables from '../../utils/extractVariables';
 import { useStore } from '../../context/store';
 import { shallow } from 'zustand/shallow';
+import toast from "react-hot-toast";
+import { IoText } from "react-icons/io5";
 
 const selector = (state) => ({
 	edges: state.edges,
@@ -21,6 +23,7 @@ const TextNode = ({ id, data }) => {
 		edges,
 		setEdges,
 		addEdge,
+		inputNameMap
 	} = useStore(selector, shallow);
 
 	const handleTextChange = (e) => {
@@ -30,7 +33,15 @@ const TextNode = ({ id, data }) => {
 		const extracted = extractVariables(value);
 
 		const uniqueVars = [...new Set(extracted)];
-		setVariables(uniqueVars);
+
+		const validVars = uniqueVars.filter((v) => {
+			const exists = findKeyByValue(v);
+			if (!exists) {
+				toast.error(`Variable "${v}" doesn't exist! Add an input first`);
+			}
+			return exists;
+		});
+		setVariables(validVars);
 	};
 
 	const variableHandles = useMemo(() => {
@@ -47,6 +58,10 @@ const TextNode = ({ id, data }) => {
 			},
 		}));
 	}, [variables]);
+
+	const findKeyByValue = (value) => {
+		return Object.keys(inputNameMap).find(key => inputNameMap[key] === value);
+	};
 
 	useEffect(() => {
 		variables.forEach((v) => {
@@ -71,10 +86,13 @@ const TextNode = ({ id, data }) => {
 		});
 	}, [variables, edges, id, addEdge]);
 
+	console.log(inputNameMap)
+
 	return (
 		<BaseNode
 			id={id}
 			title="Text"
+			icon={<IoText className='text-gray-200 text-lg' />}
 			handles={[
 				{
 					id: "output",
@@ -84,7 +102,7 @@ const TextNode = ({ id, data }) => {
 				...variableHandles
 			]}
 		>
-			<label>
+			<label className='flex flex-col text-gray-200'>
 				Text:
 				<AutoGrowTextarea
 					value={currText}
@@ -93,8 +111,21 @@ const TextNode = ({ id, data }) => {
 			</label>
 
 			{variables.length > 0 && (
-				<div className="text-xs text-gray-500 mt-2">
-					Variables: {variables.join(', ')}
+				<div className="mt-2 border-t border-white/10 pt-2">
+					<span className="text-[10px] uppercase tracking-wider text-gray-500 font-semibold mb-1 block">
+						Variables
+					</span>
+					<div className="grid grid-cols-2 gap-2">
+						{variables.map((v, i) => (
+							<div
+								key={i}
+								className="text-xs text-gray-300 bg-white/15 px-2 py-1 rounded border border-white/5 truncate"
+								title={v}
+							>
+								{findKeyByValue(v)}
+							</div>
+						))}
+					</div>
 				</div>
 			)}
 		</BaseNode>

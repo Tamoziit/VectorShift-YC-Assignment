@@ -15,11 +15,11 @@ code {
 }
 
 .dark-header {
-  @apply text-gray-200 text-lg font-semibold;
+  @apply text-gray-200 text-base font-semibold uppercase tracking-wider;
 }
 
 .light-header {
-  @apply text-gray-800 text-lg font-semibold;
+  @apply text-gray-800 text-base font-semibold uppercase tracking-wider;
 }
 
 .LLM {

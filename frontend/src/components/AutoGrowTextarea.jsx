@@ -7,7 +7,7 @@ const AutoGrowTextarea = ({ value, onChange }) => {
 		const el = textareaRef.current;
 		if (!el) return;
 
-		const height = value ? Math.min(el.scrollHeight, 160) : 25;
+		const height = value ? Math.min(el.scrollHeight, 160) : 30;
 
 		el.style.height = 'auto';
 		el.style.height = `${height}px`;
@@ -19,7 +19,7 @@ const AutoGrowTextarea = ({ value, onChange }) => {
 			value={value}
 			onChange={onChange}
 			rows={1}
-			className="resize-none overflow-hidden"
+			className="resize-none overflow-hidden input-primary w-full text-sm pb-3!"
 			placeholder='Enter text here...'
 		/>
 	);

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Position } from 'reactflow';
 import BaseNode from './BaseNode';
+import { MdOutput } from 'react-icons/md';
 
 const OutputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(data?.outputName || id.replace('customOutput-', 'output_'));
@@ -18,6 +19,7 @@ const OutputNode = ({ id, data }) => {
     <BaseNode
       id={id}
       title="Output"
+      icon={<MdOutput className='text-gray-200 text-lg' />}
       handles={[
         {
           id: "value",
@@ -26,19 +28,21 @@ const OutputNode = ({ id, data }) => {
         }
       ]}
     >
-      <label>
+      <label className='text-gray-200'>
         Name:
         <input
           type="text"
           value={currName}
           onChange={handleNameChange}
+          className='input-primary w-full text-sm'
+          placeholder="Enter output variable name..."
         />
       </label>
-      <label>
+      <label className='text-gray-200'>
         Type:
         <select value={outputType} onChange={handleTypeChange}>
-          <option value="Text">Text</option>
-          <option value="File">Image</option>
+          <option value="Text" className='text-gray-500'>Text</option>
+          <option value="File" className='text-gray-500'>File</option>
         </select>
       </label>
     </BaseNode>
